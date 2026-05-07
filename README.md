@@ -1,60 +1,73 @@
 # Team Task Manager
 
-A full-stack collaborative task management app with authentication, role-based project membership, task assignment, status tracking, and dashboard analytics.
+A full-stack collaborative task management application built with React, Vite, Node.js, Express, Prisma ORM, and PostgreSQL.
 
-## Tech Stack
+The application allows teams to create projects, manage members, assign tasks, track progress, and monitor project analytics through a modern dashboard interface.
 
-- Frontend: React, Vite
-- Backend: Node.js, Express
-- Database: Prisma ORM with SQLite locally
-- Auth: JWT with bcrypt password hashing
+---
 
-## Features
+# Live Demo
 
-- Signup and login
-- Create projects as an Admin
+## Frontend
+https://team-task-manager-client-3v6v.vercel.app
+
+## Backend API
+https://team-task-manager-niq1.onrender.com
+
+---
+
+# Features
+
+- User authentication with JWT
+- Secure signup and login
+- Role-based project access
+- Admin and member permissions
+- Create and manage projects
 - Add and remove project members
-- Create, assign, and update tasks
-- Admins can manage all project tasks and users
-- Members can view and update only their assigned tasks
-- Dashboard totals for task count, status, per-user workload, and overdue tasks
+- Create, assign, update, and delete tasks
+- Task status tracking
+- Dashboard analytics
+- Overdue task monitoring
+- Responsive modern UI
 
-## Local Setup
+---
 
-```bash
-npm install
-cp server/.env
-npm run db:push
-npm run db:seed
-npm run build
-npm run dev
-```
+# Tech Stack
 
-The app runs at `http://localhost:4000`. The Express server serves the built frontend in production and proxies Vite during development.
+## Frontend
+- React
+- Vite
+- CSS
+- Lucide React Icons
 
-Seeded accounts:
+## Backend
+- Node.js
+- Express.js
 
-- `admin@example.com` / `password123`
-- `member@example.com` / `password123`
+## Database & ORM
+- PostgreSQL (Production)
+- Prisma ORM
 
+## Authentication
+- JWT Authentication
+- bcrypt password hashing
 
-## Set the start command:
+## Deployment
+- Frontend: Vercel
+- Backend: Render
+- Database: Neon PostgreSQL
 
-```bash
-npm start
-```
+---
 
-## API Overview
+# Project Structure
 
-- `POST /api/auth/signup`
-- `POST /api/auth/login`
-- `GET /api/auth/me`
-- `GET /api/projects`
-- `POST /api/projects`
-- `POST /api/projects/:projectId/members`
-- `DELETE /api/projects/:projectId/members/:userId`
-- `GET /api/projects/:projectId/tasks`
-- `POST /api/projects/:projectId/tasks`
-- `PATCH /api/tasks/:taskId`
-- `DELETE /api/tasks/:taskId`
-- `GET /api/dashboard`
+```text
+team-task-manager/
+│
+├── client/          # React + Vite frontend
+│
+├── server/          # Express backend + Prisma
+│   ├── prisma/
+│   └── src/
+│
+└── README.md
