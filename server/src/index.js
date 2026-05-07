@@ -14,7 +14,13 @@ const prisma = new PrismaClient();
 const port = process.env.PORT || 4000;
 const jwtSecret = process.env.JWT_SECRET || "dev-secret-change-me";
 
-app.use(cors({ origin: process.env.CLIENT_ORIGIN || true, credentials: true }));
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://team-task-manager-client-3v6v.vercel.app"
+  ],
+  credentials: true
+}));
 app.use(express.json());
 app.use(morgan("dev"));
 
