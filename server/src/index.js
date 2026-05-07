@@ -1,5 +1,3 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import bcrypt from "bcryptjs";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -15,9 +13,6 @@ const app = express();
 const prisma = new PrismaClient();
 const port = process.env.PORT || 4000;
 const jwtSecret = process.env.JWT_SECRET || "dev-secret-change-me";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const clientDist = path.resolve(__dirname, "../../client/dist");
 
 app.use(cors({ origin: process.env.CLIENT_ORIGIN || true, credentials: true }));
 app.use(express.json());
@@ -338,9 +333,8 @@ app.get("/api/dashboard", requireAuth, asyncHandler(async (req, res) => {
   });
 }));
 
-app.use(express.static(clientDist));
-app.get("*", (_req, res) => {
-  res.sendFile(path.join(clientDist, "index.html"));
+app.get("/", (_req, res) => {
+  res.json({ message: "Team Task Manager API running" });
 });
 
 app.use((error, _req, res, _next) => {
