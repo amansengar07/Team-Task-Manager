@@ -13,6 +13,8 @@ import {
 } from "lucide-react";
 import "./styles.css";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const statusLabels = {
   TODO: "To Do",
   IN_PROGRESS: "In Progress",
@@ -35,7 +37,7 @@ const emptyTaskForm = {
 
 function apiClient(token) {
   async function request(path, options = {}) {
-    const response = await fetch(path, {
+    const response = await fetch(`${API_URL}${path}`, {
       ...options,
       headers: {
         "Content-Type": "application/json",
