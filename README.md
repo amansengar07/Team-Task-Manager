@@ -37,22 +37,8 @@ Seeded accounts:
 - `admin@example.com` / `password123`
 - `member@example.com` / `password123`
 
-## Environment Variables
 
-Create `server/.env`:
-
-```bash
-DATABASE_URL="file:./dev.db"
-JWT_SECRET="replace-with-a-strong-secret"
-CLIENT_ORIGIN="http://localhost:5173"
-PORT=4000
-```
-
-```bash
-npm install && npm run db:push && npm run build
-```
-
-5. Set the start command:
+## Set the start command:
 
 ```bash
 npm start
